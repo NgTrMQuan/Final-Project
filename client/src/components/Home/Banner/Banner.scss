@@ -1,0 +1,224 @@
+@import "../../../css-config/mixins.scss";
+.hero-banner {
+    padding: 40px 0;
+    position: relative;
+    background-image: linear-gradient(90deg,#03a9f4,#f441a5);
+    @include md {
+        height: calc(100vh - 80px);
+    }
+    .content {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column-reverse;
+        max-width: calc(100% - 20px);
+        margin: 0 auto;
+        position: relative;
+        @include md {
+            flex-direction: row;
+            max-width: 1200px;
+        }
+        .banner-img {
+            position: relative;
+            z-index: 9;
+            width: 200px;
+            margin-bottom: 20px;
+            animation-name: slide-in;
+            animation-duration: 1.2s;
+            animation-timing-function: ease-out;
+            animation-delay: 0.5s;
+            animation-fill-mode: forwards;
+            @keyframes slide-in {
+                from {
+                  transform: translateY(-100%);
+                }
+                to {
+                  transform: translateY(0);
+                }
+              }
+            @include md {
+                width: 500px;
+                margin-right: 60px;
+                margin-top: 50px;
+                margin-bottom: 0;
+            }
+            @include xxl {
+                width: 600px;
+                margin-right: 0;
+                margin-top: 0;
+            }
+        }
+        .text-content {
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include md {
+                position: absolute;
+                left: 50px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            @include xxl {
+                left: 0;
+            }
+            h1 {
+              font-size: 80px;
+              font-weight: 700;
+              line-height: 1;
+              color: white;
+              margin-bottom: 20px;
+              @include md {
+                  font-size: 180px;
+              }
+            }
+            p {
+              max-width: 300px;
+              font-size: 14px;
+              line-height: 20px;
+              margin-bottom: 20px;
+              @include md {
+                  max-width: 500px;
+                  font-size: 18px;
+                  line-height: 24px;
+                  margin-bottom: 40px;
+              }
+            }
+            .ctas {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                button {
+                    cursor: pointer;
+                    text-decoration: none;
+                    position: relative;
+                    border: none;
+                    font-size: 14px;
+                    font-family: inherit;
+                    color: #fff;
+                    width: 9em;
+                    height: 3em;
+                    line-height: 2em;
+                    text-align: center;
+                    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+                    background-size: 300%;
+                    border-radius: 30px;
+                    z-index: 1;
+                    font-size: 15px;
+                    font-weight: bold;
+                    box-shadow: 0px 1px 2px #2B3044,
+                    0px 4px 16px #2B3044;
+                    
+                  }
+                  
+                  button:hover {
+                    animation: ani 8s linear infinite;
+                    border: none;
+                  }
+                  
+                  @keyframes ani {
+                    0% {
+                      background-position: 0%;
+                    }
+                  
+                    100% {
+                      background-position: 400%;
+                    }
+                  }
+                  
+                  button:before {
+                    content: '';
+                    position: absolute;
+                    top: -5px;
+                    left: -5px;
+                    right: -5px;
+                    bottom: -5px;
+                    z-index: -1;
+                    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+                    background-size: 400%;
+                    border-radius: 35px;
+                    transition: 1s;
+                  }
+                  
+                  button:hover::before {
+                    filter: blur(20px);
+                  }
+                  
+                  button:active {
+                    background: linear-gradient(32deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+                  }
+            }
+        }
+        .pyramid-loader {
+          position: relative;
+          width: 300px;
+          height: 300px;
+          display: block;
+          transform-style: preserve-3d;
+          transform: rotateX(-20deg);
+        }
+        
+        .wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+          animation: spin 4s linear infinite;
+        }
+        
+        @keyframes spin {
+          100% {
+            transform: rotateY(360deg);
+          }
+        }
+        
+        .pyramid-loader .wrapper .side {
+          width: 70px;
+          height: 70px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          transform-origin: center top;
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        
+        .pyramid-loader .wrapper .side1 {
+          transform: rotateZ(-30deg) rotateY(90deg);
+          background: conic-gradient( #2BDEAC, #F028FD, #D8CCE6, #2F2585);
+        }
+        
+        .pyramid-loader .wrapper .side2 {
+          transform: rotateZ(30deg) rotateY(90deg);
+          background: conic-gradient( #2F2585, #D8CCE6, #F028FD, #2BDEAC);
+        }
+        
+        .pyramid-loader .wrapper .side3 {
+          transform: rotateX(30deg);
+          background: conic-gradient( #2F2585, #D8CCE6, #F028FD, #2BDEAC);
+        }
+        
+        .pyramid-loader .wrapper .side4 {
+          transform: rotateX(-30deg);
+          background: conic-gradient( #2BDEAC, #F028FD, #D8CCE6, #2F2585);
+        }
+        
+        .pyramid-loader .wrapper .shadow {
+          width: 60px;
+          height: 60px;
+          background: #8B5AD5;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          transform: rotateX(90deg) translateZ(-40px);
+          filter: blur(12px);
+        }
+    }
+}
