@@ -8,6 +8,7 @@ import Search from "./Search/Search";
 import { Context } from "../../utils/context";
 import Cart from "../Cart/Cart";
 
+
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [searchModal, setSearchModal] = useState(false);
@@ -36,7 +37,7 @@ const Header = () => {
                     <ul className="left">
                         <li onClick={() => navigate("/")}>Home</li>
                         <li onClick={() => navigate("/about")}>About</li>
-                        <li>Categories</li>
+                        <li onClick={() => navigate("/product")}>Categories</li>
                     </ul>
                     <div className="center" onClick={() => navigate("/")}>
                         NTMQ | STORE.

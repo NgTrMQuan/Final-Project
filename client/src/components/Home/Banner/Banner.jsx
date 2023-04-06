@@ -2,6 +2,7 @@ import React from "react";
 
 import "./Banner.scss";
 import BannerImg from "../../../assets/banner-img.png";
+import Product from "../../Products/Product/Product";
 
 const Banner = () => {
     return (
@@ -14,7 +15,7 @@ const Banner = () => {
                     </p>
                     <div className="ctas">
                         <button>Read More</button>
-                        <button>Shop Now</button>
+                        <Product text="shop Now"/>
                     </div>
                     <div class="pyramid-loader">
                         <div class="wrapper">

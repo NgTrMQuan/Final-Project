@@ -10,11 +10,13 @@ const Home = () => {
     const { products, setProducts, categories, setCategories } =
         useContext(Context);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const getProducts = () => {
         fetchDataFromApi("/api/products?populate=*").then((res) => {
             setProducts(res);
         });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const getCategories = () => {
         fetchDataFromApi("/api/categories?populate=*").then((res) => {
             setCategories(res);

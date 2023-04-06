@@ -3,6 +3,7 @@ import { Context } from "../../../utils/context";
 import { MdClose } from "react-icons/md";
 
 import "./CartItem.scss";
+
 const CartItem = () => {
     const { cartItems, handleRemoveFromCart, handleCartProductQuantity } =
         useContext(Context);
@@ -16,12 +17,14 @@ const CartItem = () => {
                     onClick={() => {}}
                 >
                     <div className="image-container">
-                        <img
-                            src={
-                                process.env.REACT_APP_STRIPE_APP_DEV_URL +
-                                item.attributes.image.data[0].attributes.url
-                            }alt=""
-                        />
+                        {item.attributes.image?.data && item.attributes.image.data[0]?.attributes.url && (
+                            <img
+                                src={
+                                    process.env.REACT_APP_STRIPE_APP_DEV_URL + item.attributes.image.data[0].attributes.url
+                                }
+                                alt=""
+                            />
+                        )}
                     </div>
                     <div className="prod-details">
                         <span className="name">{item.attributes.title}</span>

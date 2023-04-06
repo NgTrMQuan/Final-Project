@@ -4,6 +4,10 @@ import "./Product.scss";
 
 const Product = ({ data, id }) => {
     const navigate = useNavigate();
+    if (!data) {
+        return null; // or return a loading spinner or an error message
+    }
+
     return (
         <div
             className="product-card"
@@ -13,7 +17,7 @@ const Product = ({ data, id }) => {
                 <img
                     src={
                         process.env.REACT_APP_STRIPE_APP_DEV_URL +
-                        data.image.data[0].attributes.url
+                        (data?.image?.data?.[0]?.attributes?.url || '')
                     } alt=""
                 />
             </div>
