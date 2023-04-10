@@ -37,7 +37,7 @@ const Header = () => {
                     <ul className="left">
                         <li onClick={() => navigate("/")}>Home</li>
                         <li onClick={() => navigate("/about")}>About</li>
-                        <li onClick={() => navigate("/product")}>Categories</li>
+                        <li onClick={() => navigate("/about")}>Contact</li>
                     </ul>
                     <div className="center" onClick={() => navigate("/")}>
                         NTMQ | STORE.

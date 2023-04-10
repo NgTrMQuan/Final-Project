@@ -52,7 +52,7 @@ const Footer = () => {
             <div className="bottom-bar">
                 <div className="bottom-bar-content">
                     <span className="text">
-                        NTMQSTORE 2023 CREATED BY Nguyen Tran Minh Quan 
+                        NTMQ | STORE 2023 CREATED BY Nguyen Tran Minh Quan 
                     </span>
                     <img src={Payment} alt="" />
                 </div>

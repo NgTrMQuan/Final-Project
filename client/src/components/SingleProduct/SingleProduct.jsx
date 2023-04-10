@@ -17,8 +17,7 @@ const SingleProduct = () => {
     const [quantity, setQuantity] = useState(1);
     const { id } = useParams();
     const { handleAddToCart } = useContext(Context);
-    const fetchUrl = `/api/products?populate=*&[filters][id]=${id}`;
-    const { data } = useFetch(fetchUrl);
+    const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
 
     const decrement = () => {
         setQuantity((prevState) => {
@@ -26,18 +25,12 @@ const SingleProduct = () => {
             return prevState - 1;
         });
     };
-
     const increment = () => {
         setQuantity((prevState) => prevState + 1);
     };
 
-    if (!data) {
-        return <div>Loading...</div>;
-    }
-
-    const product = data?.data?.[0]?.attributes;
-
-    const imageUrl = product.image?.data?.[0]?.attributes?.url;
+    if (!data) return;
+    const product = data.data[0].attributes;
 
     return (
         <div className="single-product-main-content">
@@ -47,14 +40,13 @@ const SingleProduct = () => {
                         <img
                             src={
                                 process.env.REACT_APP_STRIPE_APP_DEV_URL +
-                                imageUrl
+                                product.img?.data?.[0].attributes?.url
                             }
-                            alt=""
                         />
                     </div>
                     <div className="right">
                         <span className="name">{product.title}</span>
-                        <span className="price">&#8377;{product.price}</span>
+                        <span className="price">${product.price}</span>
                         <span className="desc">{product.description}</span>
 
                         <div className="cart-buttons">

@@ -17,10 +17,10 @@ const CartItem = () => {
                     onClick={() => {}}
                 >
                     <div className="image-container">
-                        {item.attributes.image?.data && item.attributes.image.data[0]?.attributes.url && (
+                        {item.attributes.img.data && item.attributes.img.data[0]?.attributes.url && (
                             <img
                                 src={
-                                    process.env.REACT_APP_STRIPE_APP_DEV_URL + item.attributes.image.data[0].attributes.url
+                                    process.env.REACT_APP_STRIPE_APP_DEV_URL + item.attributes.img.data[0].attributes.url
                                 }
                                 alt=""
                             />
@@ -53,7 +53,7 @@ const CartItem = () => {
                             <span>{item.attributes.quantity}</span>
                             <span>x</span>
                             <span className="highlight">
-                                <span>&#8377;</span>
+                                <span>$</span>
                                 {item.attributes.price *
                                     item.attributes.quantity}
                             </span>
